@@ -1,4 +1,3 @@
-# BilgiYar
-# BilgiYar
-# BilgiYar-mas-
-# BilgiYar-mas-
+# BİLGİ YARIŞMASI
+
+![](eg.gif)

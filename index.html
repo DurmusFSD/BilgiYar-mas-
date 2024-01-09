@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+      let sorular = [
+        {
+          soru: "1) “İnsanlar neden dürüst olmalıdır? ",
+          a_sikki: " Toplum içinde saygı görmek için ",
+          b_sikki: " Ahlaki değerlere uygun yaşamak için ",
+          c_sikki: " Ceza almamak için ",
+          d_sikki: " Başkalarını kandırmak için ",
+          cevap: "B",
+        },
+        {
+          soru: "2) İslam'da zekatın önemi nedir? ",
+          a_sikki: " Zenginleri desteklemek için ",
+          b_sikki: " Fakirleri korumak için ",
+          c_sikki: " Mal varlığını artırmak için ",
+          d_sikki: " Ekonomik gücü dengelemek için",
+          cevap: "B",
+        },
+        {
+          soru: "3) Kıskançlık ile başa çıkmanın dini perspektifi nedir?",
+          a_sikki: " Kıskançlığın normal bir duygu olduğunu düşünmek ",
+          b_sikki: " Nimetlere şükretmek ",
+          c_sikki: " Başkalarının başarısına dua etmek ",
+          d_sikki: " Kıskançlık duygusunu bastırmak",
+          cevap: "B",
+        },
+        {
+          soru: "4) 2003 Yılında Euro Vizyon Şarkı Yarışmasında Ülkemizi Temsil Eden ve Yarışmada Birinci Gelen Sanatçımız Kimdir?",
+          a_sikki: " Grup Athena ",
+          b_sikki: " Sertap Erener ",
+          c_sikki: " Şebnem Paker ",
+          d_sikki: " Ajda Pekkan",
+          cevap: "B",
+        },
+        {
+          soru: "5) Ahlaki bir liderin özellikleri nelerdir?",
+          a_sikki: " Kendine güven ",
+          b_sikki: " Adil olma ",
+          c_sikki: " Güç kullanımında dikkatli olma ",
+          d_sikki: " Her durumda kazanmaya odaklanma",
+          cevap: "B",
+        },
+        {
+          soru: "6)Aşağıdakilerden Hangisi Dünya Sağlık Örgütünün Kısaltılmış İsmidir?",
+          a_sikki: " Uhw ",
+          b_sikki: " Unıcef ",
+          c_sikki: " Who ",
+          d_sikki: " Nato",
+          cevap: "C",
+        },
+        {
+          soru: "7)Romen Rakamında Hangi Sayı Yoktur?",
+          a_sikki: "0",
+          b_sikki: "50",
+          c_sikki: "100",
+          d_sikki: "1000",
+          cevap: "A",
+        },
+        {
+          soru: "8)Bir Gün Kaç Saniyedir?",
+          a_sikki: "86000",
+          b_sikki: "88600",
+          c_sikki: "86400",
+          d_sikki: "84800",
+          cevap: "C",
+        },
+        {
+          soru: "9)Üç Büyük Dince Kutsal Sayılan Şehir Hangisidir?",
+          a_sikki: " Mekke ",
+          b_sikki: " Kudüs ",
+          c_sikki: " Roma ",
+          d_sikki: " İstanbul",
+          cevap: "B",
+        },
+        {
+          soru: "10)Hangi İlimizde Demiryolu Yoktur?",
+          a_sikki: " Batman ",
+          b_sikki: " Kütahya ",
+          c_sikki: " Aydın ",
+          d_sikki: " Muğla",
+          cevap: "D",
+        },
+        {
+          soru: "11)Hangi Ülkenin İki Tane Başkenti Vardır?",
+          a_sikki: "Güney Afrika ",
+          b_sikki: "Senegal ",
+          c_sikki: "El Salvador ",
+          d_sikki: "Venezuela ",
+          cevap: "A",
+        },
+        {
+          soru: "12)İslam'da adaletin sağlanması için hangi önlemler alınmalıdır?",
+          a_sikki: "Şefkat ve merhametle davranmak ",
+          b_sikki: "Haksızlıkları önlemek ",
+          c_sikki: "Adaletli yasalar koymak ",
+          d_sikki: "Sadece kendi çıkarlarını düşünmek ",
+          cevap: "C",
+        },
+        {
+          soru: "13)Bir Sebepten Dolayı Tek Kulağına Küpe Takan Osmanlı Padişahı Kimdir?",
+          a_sikki: "Kanuni Sultan Süleyman ",
+          b_sikki: "Yavuz Sultan Selim ",
+          c_sikki: "Orhan Bey ",
+          d_sikki: "Fatih Sultan Selim ",
+          cevap: "B",
+        },
+        {
+          soru: "14)Edep nedir ve neden önemlidir?",
+          a_sikki: "Toplum normlarına uymak için ",
+          b_sikki: "Başkalarına saygı göstermek için ",
+          c_sikki: "Kişisel çıkarları korumak için ",
+          d_sikki: "Ahlaki değerleri ihmal etmek için ",
+          cevap: "B",
+        },
+        {
+          soru: "15) Hristiyanlıkta bağışlama kavramı nasıl açıklanır?",
+          a_sikki: "Unutma ve affetme ",
+          b_sikki: "Hataları tekrarlamama sözü verme ",
+          c_sikki: "Başkalarını yargılama hakkını elde etme ",
+          d_sikki: "Kişisel intikam alma",
+          cevap: "A",
+        },
+        {
+          soru: "16) Oruç tutmanın İslam'daki amacı nedir?",
+          a_sikki: "Fiziksel sağlığı iyileştirmek  ",
+          b_sikki: "Ruhani büyümeyi teşvik etmek  ",
+          c_sikki: "Toplumsal dayanışmayı artırmak ",
+          d_sikki: "Allah'ın öfkesini önlemek",
+          cevap: "B",
+        },
+      ];
+    </script>
+    <script>
+      let sorunun_cevabi = "";
+      let puan = 0;
+      let dogru_sayisi = 0;
+      let yanlis_sayisi = 0;
+      let soru_numarasi = 0;
+
+      function basa_don() {
+        document.getElementById("soru_kutusu").style.display = "none";
+        document.getElementById("skor_board").style.display = "none";
+
+        sorunun_cevabi = "";
+        puan = 0;
+        dogru_sayisi = 0;
+        yanlis_sayisi = 0;
+        soru_numarasi = 0;
+        skor_yaz();
+      }
+
+      function soru_getir(s_no) {
+        document.getElementById("soru_kutusu").style.display = "block";
+        document.getElementById("skor_board").style.display = "block";
+
+        if (soru_numarasi == sorular.length) {
+          swal({
+            title: "Sorular Bitti",
+            text: "Tebrikler",
+            icon: "success",
+            button: "Başa Dönmek İçin Tıklayınız...",
+          }).then(function () {
+            basa_don();
+          });
+        }
+
+        document.getElementById("soru_metni").innerHTML = sorular[s_no].soru;
+        document.getElementById("a_sikki").innerHTML = sorular[s_no].a_sikki;
+        document.getElementById("b_sikki").innerHTML = sorular[s_no].b_sikki;
+        document.getElementById("c_sikki").innerHTML = sorular[s_no].c_sikki;
+        document.getElementById("d_sikki").innerHTML = sorular[s_no].d_sikki;
+        sorunun_cevabi = sorular[s_no].cevap;
+      }
+      function skor_yaz() {
+        document.getElementById("d_sayisi").innerHTML = dogru_sayisi;
+        document.getElementById("y_sayisi").innerHTML = yanlis_sayisi;
+        document.getElementById("p_yazisi").innerHTML = puan;
+      }
+
+      function cevaplandi(hangi_sik) {
+        kullanici_secimi = hangi_sik.getAttribute("data-secim");
+
+        if (sorunun_cevabi == kullanici_secimi) {
+          puan = puan + 10;
+          dogru_sayisi++;
+          skor_yaz();
+          swal("Tebrikler!", "İyi İlerliyorsun", "success").then(function () {
+            soru_ilerlet();
+          });
+        } else {
+          yanlis_sayisi++;
+          skor_yaz();
+          swal("Üzgünüz!", "Cevabınız Hatalı", "warning").then(function () {
+            soru_ilerlet();
+          });
+        }
+      }
+
+      function soru_ilerlet() {
+        soru_numarasi++;
+        soru_getir(soru_numarasi);
+      }
+    </script>
+  </head>
+  <body>
+    <button class="baslama_btn" onclick="soru_getir(0)">Yarışmaya Başla</button>
+    <div id="skor_board">
+      <div class="d_y_baslik">Dogru Sayısı:</div>
+      <div id="d_sayisi">-</div>
+
+      <div class="d_y_baslik">Yanlış Sayısı:</div>
+      <div id="y_sayisi">-</div>
+
+      <div id="puan">PUAN: <span id="p_yazisi">-</span></div>
+    </div>
+
+    <div id="soru_kutusu">
+      <div id="soru_metni">Soru Metni</div>
+      <div id="cevaplar">
+        <div id="a_sikki" data-secim="A" onclick="cevaplandi(this)">A</div>
+        <div id="b_sikki" data-secim="B" onclick="cevaplandi(this)">B</div>
+        <div id="c_sikki" data-secim="C" onclick="cevaplandi(this)">C</div>
+        <div id="d_sikki" data-secim="D" onclick="cevaplandi(this)">D</div>
+      </div>
+    </div>
+  </body>
+</html>
